@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <!-- Roboto Flex Variable Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wdth,wght@8..144,75..125,100..700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tannhäuser Holding</title>
+  <meta name="description" content="Tannhäuser Holding UG – Beteiligungsgesellschaft & Business Angel mit Fokus auf Berlin und Brandenburg." />
+  <style>
+    :root {
+      --gold: #d4af37;
+      --black: #000000;
+      --gray: #111111;
+      --text: #e5e5e5;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* echtes Fett für strong (Roboto Flex Variable) */
+    strong {
+      font-variation-settings: "wdth" 95, "wght" 550;
+      color: var(--text);
+    }
+
+    body {
+      font-family: "Roboto Flex", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+      font-variation-settings: "wdth" 90, "wght" 300;
+      letter-spacing: 0.01em;
+      background: var(--black);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .sr-only { position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
+
+    header { min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2rem;background:radial-gradient(circle at center,#111 0%,#000 70%); }
+    header svg { margin-bottom:2.5rem; }
+
+    section { padding:5rem 2rem;max-width:1100px;margin:0 auto; }
+    section h2 { color:var(--gold);font-size:1.8rem;margin-bottom:2rem;text-transform:uppercase;letter-spacing:0.03em;font-variation-settings:"wdth" 92,"wght" 500; }
+
+    .grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem; }
+    .card { background:var(--gray);padding:2rem;border-left:2px solid var(--gold);display:flex;flex-direction:column;gap:1rem; }
+
+    .card h3 { color:var(--gold);font-size:1.1rem;font-variation-settings:"wdth" 92,"wght" 500; }
+
+    .btn-gold {
+      margin-top:auto;
+      align-self:flex-start;
+      padding:0.5rem 1.2rem;
+      border:1px solid var(--gold);
+      color:var(--gold);
+      text-decoration:none;
+      font-size:0.85rem;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      transition:all .2s ease;
+    }
+    .btn-gold:hover { background:var(--gold);color:#000; }
+
+    footer { text-align:center;padding:3rem 1rem;font-size:0.9rem;opacity:0.6;border-top:1px solid #222; }
+
+    @media(max-width:600px){ section{padding:3rem 1.5rem;} }
+
+    /* NAV */
+    .topnav{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(0,0,0,0.65);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #222;
+    }
+    .nav-inner{
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.9rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      position: relative;
+    }
+    .nav-brand {
+      color: var(--text);
+      text-decoration: none;
+      font-variation-settings: "wdth" 92, "wght" 500;
+      letter-spacing: 0.02em;
+      opacity: 0.95;
+      display: flex;
+      align-items: center;   /* vertikale Zentrierung */
+    }
+    
+    .nav-brand svg {
+      display: block;        /* verhindert Baseline-Versatz */
+    }
+    .nav-menu{
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+    .nav-menu a{
+      color: var(--text);
+      text-decoration: none;
+      opacity: 0.8;
+      font-size: 0.95rem;
+      font-variation-settings: "wdth" 92, "wght" 350;
+      transition: opacity .2s ease;
+    }
+    .nav-menu a:hover{ opacity: 1; }
+    
+    .nav-toggle{
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid #222;
+      background: transparent;
+      border-radius: 10px;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .nav-toggle span{
+      display:block;
+      height:2px;
+      background: var(--text);
+      margin: 6px 0;
+      opacity: 0.9;
+    }
+    
+    html{ scroll-behavior: smooth; }
+    
+    /* Anker nicht unter der sticky Navi verstecken */
+    section[id]{ scroll-margin-top: 90px; }
+    
+    @media (max-width: 820px){
+      /* Mobile ohne Burger: Menü bleibt sichtbar und wird horizontal scrollbar */
+      .nav-inner{ padding: 0.7rem 1.2rem; }
+      .nav-menu{
+        position: static;
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        padding: 0;
+        background: transparent;
+        border: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .nav-menu::-webkit-scrollbar{ display:none; }
+      .nav-menu a{ white-space: nowrap; }
+    }
+
+    /* Desktop: Menü sichtbar */
+    @media (min-width: 821px){
+      .nav-menu{ display:flex; position: static; background: transparent; border: 0; padding: 0; flex-direction: row; }
+    }
+    }
+
+.nav-menu.is-open{ display:flex; }
+    }
+      .nav-menu{
+        position: absolute;
+        left: 0; right: 0;
+        top: 100%;
+        background: rgba(0,0,0,0.92);
+        border-bottom: 1px solid #222;
+        display: none;
+        flex-direction: column;
+        padding: 1rem 2rem 1.5rem;
+        gap: 0.9rem;
+      }
+      .nav-menu.is-open{ display:flex; }
+    }
+    
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="topnav" aria-label="Hauptnavigation">
+    <div class="nav-inner">
+      <a class="nav-brand" href="#top" aria-label="Zur Startseite">
+  <svg width="40" height="40" viewBox="0 -30 179.39 193.06" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <g fill="currentColor">
+      <rect x="61.82" y="-8.16" width="13.21" height="87.63" transform="translate(45.25 -37.94) rotate(45)"/>
+      <rect x="66.34" y="16.04" width="13.21" height="87.63" transform="translate(63.69 -34.05) rotate(45)"/>
+      <rect x="106.94" y="4.15" width="13.21" height="87.63" transform="translate(67.18 -66.24) rotate(45)"/>
+      <rect x="103.81" y="36.01" width="13.21" height="87.63" transform="translate(88.78 -54.69) rotate(45)"/>
+    </g>
+  </svg>
+</a>
+  
+      
+  
+      <div id="navMenu" class="nav-menu">
+        <a href="#ueber">Über uns</a>
+        <a href="#was">Was wir tun</a>
+        <a href="#engagements">Unsere Engagements</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="#impressum">Impressum</a>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- HERO -->
+  <header id="top">
+    <svg role="img" aria-label="Tannhäuser Holding Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 179.39 193.06" width="240" height="240">
+      <defs>
+        <!-- Goldton (metallisch, warm) -->
+        <linearGradient id="goldFill" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#fff3b0"/>
+          <stop offset="18%" stop-color="#f6d777"/>
+          <stop offset="45%" stop-color="#d4af37"/>
+          <stop offset="72%" stop-color="#b08a1e"/>
+          <stop offset="100%" stop-color="#fff0b8"/>
+        </linearGradient>
+
+        <!-- dezente Tiefe/Shadow -->
+        <filter id="softDepth" x="-40%" y="-40%" width="180%" height="180%">
+          <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity="0.7"/>
+          <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#d4af37" flood-opacity="0.12"/>
+        </filter>
+      </defs>
+
+      <!-- Originalpfade; nur Fill/Filter wird hier zentral gesetzt -->
+      <g filter="url(#softDepth)" fill="url(#goldFill)">
+        <rect x="61.82" y="-8.16" width="13.21" height="87.63" transform="translate(45.25 -37.94) rotate(45)"/>
+        <rect x="66.34" y="16.04" width="13.21" height="87.63" transform="translate(63.69 -34.05) rotate(45)"/>
+        <rect x="106.94" y="4.15" width="13.21" height="87.63" transform="translate(67.18 -66.24) rotate(45)"/>
+        <rect x="103.81" y="36.01" width="13.21" height="87.63" transform="translate(88.78 -54.69) rotate(45)"/>
+
+        <path d="M15.82,139.07v1.62h-6.97v18.37h-1.9v-18.37H0v-1.62h15.82Z"/>
+        <path d="M23.77,139.07l7.84,19.99h-2.04l-2.44-6.22h-9.1l-2.41,6.22h-2.02l8.04-19.99h2.13ZM26.49,151.22l-3.86-10.25-4,10.25h7.87Z"/>
+        <path d="M35.53,139.07l11.65,16.91h.06v-16.91h1.9v19.99h-2.13l-11.65-16.91h-.06v16.91h-1.9v-19.99h2.13Z"/>
+        <path d="M55.24,139.07l11.65,16.91h.06v-16.91h1.9v19.99h-2.13l-11.65-16.91h-.06v16.91h-1.9v-19.99h2.13Z"/>
+        <path d="M74.76,139.07v8.68h11.87v-8.68h1.9v19.99h-1.9v-9.69h-11.87v9.69h-1.9v-19.99h1.9Z"/>
+        <path d="M100.55,139.07l7.84,19.99h-2.04l-2.44-6.22h-9.1l-2.41,6.22h-2.02l8.04-19.99h2.13ZM103.26,151.22l-3.86-10.25-4,10.25h7.87ZM95.96,134.17h1.9v2.83h-1.9v-2.83ZM100.91,134.17h1.9v2.83h-1.9v-2.83Z"/>
+        <path d="M111.92,139.07v12.38c0,1.16.13,2.14.39,2.95.26.81.64,1.48,1.15,1.99.5.51,1.12.89,1.85,1.12.73.23,1.55.35,2.46.35s1.76-.12,2.49-.35c.73-.23,1.34-.61,1.85-1.12.5-.51.89-1.18,1.15-1.99.26-.81.39-1.8.39-2.95v-12.38h1.9v12.8c0,1.03-.14,2-.43,2.93-.29.92-.75,1.73-1.37,2.42-.63.69-1.43,1.24-2.41,1.64-.98.4-2.17.6-3.57.6s-2.56-.2-3.54-.6c-.98-.4-1.78-.95-2.41-1.64-.62-.69-1.08-1.5-1.37-2.42-.29-.92-.43-1.9-.43-2.93v-12.8h1.9Z"/>
+        <path d="M130.76,155.06c.34.69.8,1.24,1.39,1.65.59.41,1.28.71,2.09.88.8.18,1.66.27,2.58.27.52,0,1.09-.07,1.71-.22.62-.15,1.19-.39,1.72-.71.53-.33.97-.75,1.33-1.26.35-.51.53-1.13.53-1.86,0-.56-.13-1.04-.38-1.46-.25-.41-.58-.76-.98-1.04-.4-.28-.84-.51-1.33-.69-.49-.18-.96-.32-1.43-.43l-4.45-1.09c-.58-.15-1.14-.34-1.69-.56-.55-.22-1.03-.52-1.44-.9-.41-.37-.74-.83-.99-1.37-.25-.54-.38-1.2-.38-1.99,0-.48.09-1.05.28-1.71.19-.65.54-1.27,1.05-1.85s1.22-1.07,2.11-1.47c.9-.4,2.04-.6,3.44-.6.99,0,1.93.13,2.83.39.9.26,1.68.65,2.35,1.18.67.52,1.21,1.17,1.61,1.95.4.77.6,1.68.6,2.7h-1.9c-.04-.77-.21-1.43-.52-2-.31-.57-.71-1.04-1.2-1.43-.5-.38-1.06-.67-1.71-.87-.64-.2-1.32-.29-2.03-.29-.65,0-1.28.07-1.89.21-.61.14-1.14.36-1.6.67-.46.31-.83.71-1.11,1.22s-.42,1.13-.42,1.88c0,.47.08.87.24,1.22.16.35.38.64.66.88.28.24.6.44.97.59.36.15.75.27,1.16.36l4.87,1.2c.71.19,1.38.42,2,.69.62.27,1.18.61,1.65,1.01.48.4.85.89,1.12,1.47.27.58.41,1.28.41,2.1,0,.22-.02.52-.07.9-.05.37-.16.77-.34,1.19s-.43.84-.76,1.27c-.33.43-.77.82-1.34,1.16-.57.35-1.27.63-2.11.84s-1.85.32-3.02.32-2.27-.14-3.28-.41c-1.01-.27-1.87-.69-2.58-1.25-.71-.56-1.26-1.28-1.64-2.16-.38-.88-.55-1.93-.49-3.16h1.9c-.02,1.03.14,1.89.48,2.58Z"/>
+        <path d="M160.83,139.07v1.62h-11.9v7.22h11.14v1.62h-11.14v7.9h12.04v1.62h-13.94v-19.99h13.8Z"/>
+        <path d="M172.79,139.07c.82,0,1.6.1,2.34.31.74.21,1.38.52,1.93.94s.99.96,1.32,1.62c.33.66.49,1.44.49,2.34,0,1.27-.33,2.37-.98,3.3-.65.93-1.62,1.53-2.91,1.79v.06c.65.09,1.19.27,1.62.52.43.25.78.57,1.05.97s.47.84.59,1.36c.12.51.2,1.07.24,1.67.02.34.04.75.06,1.23.02.49.06.98.11,1.47.06.49.14.96.27,1.4.12.44.28.78.49,1.02h-2.1c-.11-.19-.2-.42-.27-.69-.07-.27-.11-.55-.14-.84-.03-.29-.05-.57-.07-.85-.02-.28-.04-.52-.06-.73-.04-.71-.1-1.41-.18-2.11-.08-.7-.26-1.33-.53-1.88-.27-.55-.66-.99-1.18-1.33-.51-.34-1.22-.48-2.11-.45h-7.22v8.88h-1.9v-19.99h9.16ZM172.65,148.56c.58,0,1.13-.09,1.65-.27.52-.18.98-.43,1.37-.77.39-.34.7-.74.94-1.22.23-.48.35-1.02.35-1.64,0-1.23-.35-2.2-1.06-2.91s-1.79-1.06-3.25-1.06h-7.11v7.87h7.11Z"/>
+
+        <path d="M33.45,172.67v8.68h11.87v-8.68h1.9v19.99h-1.9v-9.69h-11.87v9.69h-1.9v-19.99h1.9Z"/>
+        <path d="M50.78,178.72c.39-1.25.98-2.36,1.76-3.32.78-.96,1.77-1.73,2.95-2.3,1.19-.57,2.56-.85,4.13-.85s2.94.29,4.12.85c1.18.57,2.16,1.33,2.94,2.3.78.96,1.37,2.07,1.76,3.32s.59,2.57.59,3.95-.2,2.7-.59,3.95-.98,2.35-1.76,3.3c-.78.95-1.76,1.71-2.94,2.28-1.18.57-2.55.85-4.12.85s-2.94-.28-4.13-.85-2.17-1.33-2.95-2.28c-.78-.95-1.37-2.05-1.76-3.3s-.59-2.57-.59-3.95.2-2.7.59-3.95ZM52.53,185.87c.29,1.05.74,2,1.34,2.83s1.39,1.5,2.34,2c.95.5,2.09.76,3.42.76s2.46-.25,3.4-.76c.94-.5,1.72-1.17,2.32-2s1.05-1.77,1.34-2.83c.29-1.05.43-2.12.43-3.21s-.15-2.17-.43-3.22c-.29-1.05-.74-1.98-1.34-2.81s-1.38-1.5-2.32-2c-.94-.5-2.08-.76-3.4-.76s-2.46.25-3.42.76c-.95.5-1.73,1.17-2.34,2s-1.05,1.77-1.34,2.81c-.29,1.05-.43,2.12-.43,3.22s.14,2.15.43,3.21Z"/>
+        <path d="M73.91,172.67v18.37h11.2v1.62h-13.1v-19.99h1.9Z"/>
+        <path d="M93.95,172.67c3.04.08,5.33.93,6.87,2.56,1.54,1.63,2.31,4.11,2.31,7.43s-.77,5.8-2.31,7.43c-1.54,1.63-3.83,2.49-6.87,2.56h-6.92v-19.99h6.92ZM93,191.04c1.44,0,2.67-.15,3.71-.46s1.89-.8,2.56-1.47c.67-.67,1.17-1.54,1.48-2.6s.48-2.34.48-3.84-.16-2.77-.48-3.84-.81-1.93-1.48-2.6c-.67-.67-1.53-1.16-2.56-1.47-1.04-.31-2.27-.46-3.71-.46h-4.06v16.74h4.06Z"/>
+        <path d="M108.26,172.67v19.99h-1.9v-19.99h1.9Z"/>
+        <path d="M114.53,172.67l11.65,16.91h.06v-16.91h1.9v19.99h-2.13l-11.65-16.91h-.06v16.91h-1.9v-19.99h2.13Z"/>
+        <path d="M147.85,192.66l-.25-3.64h-.06c-.34.71-.75,1.32-1.25,1.83-.49.51-1.04.93-1.64,1.26s-1.24.56-1.92.71-1.39.22-2.11.22c-1.57,0-2.94-.28-4.13-.85s-2.17-1.33-2.95-2.28c-.78-.95-1.37-2.05-1.76-3.3-.39-1.25-.59-2.57-.59-3.95s.2-2.7.59-3.95c.39-1.25.98-2.36,1.76-3.32.78-.96,1.77-1.73,2.95-2.3,1.19-.57,2.56-.85,4.13-.85,1.05,0,2.03.14,2.97.42.93.28,1.76.7,2.49,1.26.73.56,1.34,1.25,1.85,2.07.5.82.85,1.78,1.04,2.88h-1.9c-.06-.58-.25-1.16-.57-1.75-.33-.59-.77-1.12-1.32-1.61-.55-.48-1.21-.88-1.97-1.19-.77-.31-1.62-.46-2.58-.46-1.33,0-2.46.25-3.42.76-.95.5-1.73,1.17-2.34,2s-1.05,1.77-1.34,2.81c-.29,1.05-.43,2.12-.43,3.22s.14,2.15.43,3.21c.29,1.05.74,2,1.34,2.83s1.39,1.5,2.34,2,2.09.76,3.42.76c1.1,0,2.09-.18,2.95-.55s1.6-.87,2.2-1.53c.6-.65,1.04-1.43,1.34-2.32s.44-1.88.42-2.94h-6.8v-1.62h8.48v10.16h-1.37Z"/>
+      </g>
+    </svg>
+    <h1 class="sr-only">Tannhäuser Holding – Beteiligungsgesellschaft & Business Angel in Berlin und Brandenburg</h1>
+    <p>
+      Kickstart-Partner für Ideen.<br />
+      Kapital, Know-how und Infrastruktur – fokussiert auf Berlin & Brandenburg.
+    </p>
+  </header>
+
+  <!-- ÜBER UNS -->
+  <section id="ueber">
+    <h2>Über uns</h2>
+    <p>
+      Die <span class="focus">Tannhäuser Holding</span> fungiert als Dachgesellschaft für unternehmerische Beteiligungen
+      in ausgewählten unternehmerischen Handlungsfeldern.
+      Unser Ansatz ist langfristig, unternehmerisch und hands-on.
+    </p>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section id="was">
+    <h2>WAS WIR TUN</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Business Angel</h3>
+        <p>
+          Frühphasige und strategische Beteiligungen an Ideen mit klarer Vision und operativer Umsetzungskraft.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Investitionen</h3>
+        <p>
+          Eigenkapital, Beteiligungen und strukturierte Wachstumsfinanzierung – selektiv, fokussiert und langfristig.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Know-how &amp; Infrastruktur</h3>
+        <p>
+          Bereitstellung von Management-Know-how, operativen Prozessen, IT-Infrastruktur und belastbaren Netzwerken.
+        </p>
+      </div>
+      <div class="card">
+        <h3>Regionaler Fokus</h3>
+        <p>
+          Klare regionale Ausrichtung auf Berlin &amp; Brandenburg mit nachhaltigem Aufbau lokaler Strukturen.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- UNTERNEHMEN -->
+  <section id="engagements">
+    <h2>UNSERE ENGAGEMENTS</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Tannhäuser Security GmbH</h3>
+        <p>Sicherheitsdienstleistungen für Behörden, Wirtschaft und exponierte Privatpersonen.</p>
+        <a class="btn-gold" href="https://www.tannhaeuser-security.de" target="_blank" rel="noopener">Website</a>
+      </div>
+      <div class="card">
+        <h3>Tannhäuser Arms</h3>
+        <p>Handel, Ausbildung und Beratung im Bereich Waffen, Munition für Schießsport, Jagt und berufliche Anwender.</p>
+        <a class="btn-gold" href="https://www.tannhaeuserarms.com" target="_blank" rel="noopener">Website</a>
+      </div>
+      <div class="card">
+        <h3>Shield Research &amp; Consulting</h3>
+        <p>KI, Anwendungsentwicklung sowie Technologie-, Sicherheits- und Strategieberatung mit internationalem Projektfokus.</p>
+        <a class="btn-gold" href="https://www.shield-research-consulting.de" target="_blank" rel="noopener">Website</a>
+      </div>
+      <div class="card">
+        <h3>Executive Shooting Club Berlin-Brandenburg e.V.</h3>
+        <p>Exklusiver Schießsport- und Ausbildungsverein für anspruchsvolle Mitglieder.</p>
+        <a class="btn-gold" href="https://www.executive-shooting-club.de" target="_blank" rel="noopener">Website</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt">
+    <h2>KONTAKT</h2>
+    <p>
+      Für Beteiligungsanfragen, Kooperationen oder vertrauliche Erstgespräche erreichen Sie uns direkt.
+    </p>
+    <p>
+      <strong>E-Mail:</strong><br />
+      <a href="mailto:st@tannhaeuserholding.com" style="color: var(--gold); text-decoration: none;">st@tannhaeuserholding.com</a>
+    </p>
+    <p>
+      <strong>Telefon:</strong><br />
+      +49&nbsp;151&nbsp;23449896
+    </p>
+  </section>
+
+<!-- IMPRESSUM -->
+<style>
+  /* Mehr Luft zwischen Impressums-Absätzen */
+  section:last-of-type p {
+    margin-bottom: 1.6rem;
+  }
+</style>
+  <section id="impressum">
+    <h2>IMPRESSUM</h2>
+    <p>
+      <strong>Tannhäuser Holding UG (haftungsbeschränkt)</strong><br />
+      Karl-Marx-Allee 4<br />
+      10178 Berlin<br />
+      Deutschland
+    </p>
+    <p>
+      <strong>Vertreten durch:</strong><br />
+      Stefan Tannhäuser
+    </p>
+    <p>
+      <strong>Kontakt:</strong><br />
+      Telefon: +4915123449896<br />
+      E-Mail: st@tannhaeuserholding.com
+    </p>
+    <p>
+      <strong>Registereintrag:</strong><br />
+      Eintragung im Handelsregister.<br />
+      Registergericht: Amtsgericht Charlottenburg<br />
+      Registernummer: HRB 243101 B
+    </p>
+    <p>
+      <strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br />
+      Stefan Tannhäuser<br />
+      Anschrift wie oben
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      © Tannhäuser Holding<br />
+      Berlin & Brandenburg
+    </p>
+  </footer>
+
+  <script>
+  (function () {
+    const nav = document.querySelector('.topnav');
+    const offset = () => (nav ? nav.getBoundingClientRect().height + 10 : 0);
+
+    function scrollToEl(el) {
+      const top = el.getBoundingClientRect().top + window.scrollY - offset();
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+
+    // Brand = Home
+    const brand = document.querySelector('.nav-brand');
+    if (brand) {
+      brand.addEventListener('click', (e) => {
+        e.preventDefault();
+        const topEl = document.getElementById('top');
+        if (topEl) scrollToEl(topEl);
+      });
+    }
+
+    // Menu links
+    document.querySelectorAll('.nav-menu a[href^="#"]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        const id = (a.getAttribute('href') || '').slice(1);
+        const target = document.getElementById(id);
+        if (!target) return;
+        e.preventDefault();
+        scrollToEl(target);
+      });
+    });
+  })();
+</script>
+</body>
+</html>
